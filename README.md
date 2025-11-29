@@ -2,6 +2,11 @@
 
 Digital Safe AI is a safety intelligence coach built for women and girls navigating online risk. It blends a transparent rules engine with GPT guidance to score digital safety posture, surface threats, and deliver an actionable plan—without requiring an account or sharing data with a server.
 
+Links:
+
+Project Demo: https://digitalsafeai.lovable.app
+
+Pitch Deck: [[Pitch Deck]](https://www.canva.com/design/DAG6EPfSzzI/XJdUiLM3KM1TZntGCGx_cA/edit?utm_content=DAG6EPfSzzI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ---
 
 ## Feature Highlights
@@ -24,64 +29,12 @@ Digital Safe AI is a safety intelligence coach built for women and girls navigat
 
 ---
 
-## Project Structure
-```
-web/
-├─ src/
-│  ├─ app/             # Next.js routes (`/`, `/quiz`, API)
-│  ├─ components/      # Shared UI, quiz widgets, result panels
-│  ├─ data/            # Quiz question bank & persona metadata
-│  ├─ lib/             # Scoring, prompt helpers, type definitions
-│  └─ store/           # Zustand quiz store
-├─ public/             # Static assets (icons, svgs)
-├─ tailwind.config.js  # Theming & tokens
-└─ README.md
-```
+## Impact
 
----
-
-## Getting Started
-1. **Install dependencies**
-   ```bash
-   cd web
-   npm install
-   ```
-2. **Configure environment**
-   ```
-   # web/.env.local
-   OPENAI_API_KEY=sk-your-key
-   ```
-3. **Run locally**
-   ```bash
-   npm run dev
-   ```
-4. Visit `http://localhost:3000` for the marketing page and `http://localhost:3000/quiz` for the full flow.
-
+DigitalSafeAI aims to create a digitally safe environment for women and girls, equipping them with knowledge and tools to navigate online spaces confidently and securely.
 > **Privacy note:** Quiz answers stay in browser memory. Session history is stored only in `localStorage`; there is no backend persistence.
 
 ---
-
-## Scripts
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start Next.js dev server |
-| `npm run build` | Production build (includes TypeScript + lint checks) |
-| `npm start` | Run production server locally |
-| `npm run lint` | ESLint (Next.js config) |
-
----
-
-## Deployment
-1. Push the repository to GitHub/GitLab.
-2. Connect the repo to a hosting provider:
-   - **Vercel** *(recommended)* for instant Next.js support, preview URLs, and edge acceleration.
-   - **Netlify** if you prefer Netlify workflows/functions.
-   - **Cloudflare Pages/Workers** for edge-first deployments.
-3. Set `OPENAI_API_KEY` in the hosting dashboard.
-4. (Optional) Add custom domains, analytics, and image optimization settings per provider.
-
----
-
 ## QA Checklist
 - [ ] Complete the quiz and verify the progress header, swipe gestures, and CTA states.
 - [ ] Trigger the results view, ensure persona, chart, plan, and checklist render.
