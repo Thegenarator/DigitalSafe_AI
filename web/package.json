@@ -23,7 +23,6 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@next/swc-win32-x64-msvc": "^13.5.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
