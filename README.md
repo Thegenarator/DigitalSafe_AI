@@ -15,6 +15,9 @@ Pitch Deck: [[Pitch Deck]](https://www.canva.com/design/DAG6EPfSzzI/XJdUiLM3KM1T
 - **Results hub** — score dial, persona narrative, risks, safety plan, checklist, and history in one view.
 - **Safety Boost checklist** — track completion locally, print/download plans, and review prior assessments.
 - **Mobile-first UX** — responsive layout, glassmorphic hero, fixed nav, and accessible animations.
+- **Quick Exit / Camouflage** — fast redirection to a safe page and visually subtle UI so the app doesn’t draw unwanted attention.
+- **Secure Evidence Vault** — guided, discreet incident logging that minimizes traces on the device while helping users document abuse patterns.
+- **Offline & Low-Bandwidth Support** — core assessment and guidance designed to work reliably in constrained connectivity environments.
 
 ---
 

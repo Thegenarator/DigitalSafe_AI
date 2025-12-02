@@ -1,0 +1,7 @@
+# Ignore all markdown docs by default…
+*.md
+
+# …but keep the main project README tracked
+!README.md
+
+
