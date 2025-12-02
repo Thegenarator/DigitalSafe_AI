@@ -64,6 +64,14 @@ export default function Home() {
                     </span>
                   </Link>
                   <Link
+                    href="/chatbot"
+                    className="group inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-brand-200 bg-white px-7 py-4 text-base font-semibold text-brand-700 transition-all duration-300 hover:border-brand-300 hover:bg-brand-50 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-brand-300 sm:px-9"
+                    aria-label="Access mental health wellness chat"
+                  >
+                    <span>💚</span>
+                    <span>Wellness Chat</span>
+                  </Link>
+                  <Link
                     href="#how-it-works"
                     className="inline-flex items-center justify-center rounded-full border-2 border-brand-200 bg-white px-7 py-4 text-base font-semibold text-brand-700 transition-all duration-300 hover:border-brand-300 hover:bg-brand-50 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-brand-300 sm:px-9"
                     aria-label="Learn how DigiSafe AI works"

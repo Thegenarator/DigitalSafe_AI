@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Shield, Menu, X } from "lucide-react";
+import { Home, Shield, Menu, X, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 import { QuickExitButton } from "@/components/shared/quick-exit";
 
@@ -53,6 +53,16 @@ export function MobileNav() {
               }`}
             >
               Home
+            </Link>
+            <Link
+              href="/chatbot"
+              className={`rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                pathname === "/chatbot"
+                  ? "bg-brand-50 text-brand-700"
+                  : "text-ink-600 hover:bg-ink-50 hover:text-ink-900"
+              }`}
+            >
+              Wellness Chat
             </Link>
             <Link
               href="/quiz"
@@ -136,6 +146,18 @@ export function MobileNav() {
             >
               <Home className="h-5 w-5" />
               <span>Home</span>
+            </Link>
+            <Link
+              href="/chatbot"
+              onClick={() => setIsOpen(false)}
+              className={`flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition-all duration-200 ${
+                pathname === "/chatbot"
+                  ? "bg-brand-50 text-brand-700"
+                  : "text-ink-700 hover:bg-ink-50 hover:text-ink-900"
+              }`}
+            >
+              <Heart className="h-5 w-5" />
+              <span>Wellness Chat</span>
             </Link>
             <Link
               href="/quiz"
