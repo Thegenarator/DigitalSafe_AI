@@ -1,9 +1,10 @@
-"use client";
+\"use client\";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Home, Shield, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import Link from \"next/link\";
+import { usePathname } from \"next/navigation\";
+import { Home, Shield, Menu, X } from \"lucide-react\";
+import { useState, useEffect } from \"react\";
+import { QuickExitButton } from \"@/components/shared/quick-exit\";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,28 +43,32 @@ export function MobileNav() {
               </span>
             </Link>
 
-            <div className="flex items-center gap-1">
-              <Link
-                href="/"
-                className={`rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ${
-                  pathname === "/"
-                    ? "bg-brand-50 text-brand-700"
-                    : "text-ink-600 hover:bg-ink-50 hover:text-ink-900"
-                }`}
-              >
-                Home
-              </Link>
-              <Link
-                href="/quiz"
-                className={`ml-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-md shadow-brand-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-brand-500/40 hover:scale-105 ${
-                  pathname === "/quiz"
-                    ? "ring-2 ring-brand-300 ring-offset-2"
-                    : ""
-                }`}
-              >
-                Start Safety Scan
-              </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/"
+              className={`rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                pathname === "/"
+                  ? "bg-brand-50 text-brand-700"
+                  : "text-ink-600 hover:bg-ink-50 hover:text-ink-900"
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              href="/quiz"
+              className={`ml-1 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-md shadow-brand-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-brand-500/40 hover:scale-105 ${
+                pathname === "/quiz"
+                  ? "ring-2 ring-brand-300 ring-offset-2"
+                  : ""
+              }`}
+            >
+              Start Safety Scan
+            </Link>
+            {/* Quick Exit button – subtle but always available on desktop */}
+            <div className="ml-2 hidden lg:inline-flex">
+              <QuickExitButton variant="nav" />
             </div>
+          </div>
           </div>
         </div>
       </nav>
@@ -146,13 +151,19 @@ export function MobileNav() {
             </Link>
           </div>
 
-          <div className="border-t border-ink-100 bg-gradient-to-br from-brand-50/50 to-white p-5">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
-              Need Help?
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-600">
-              Contact local GBV hotlines or support services for immediate assistance.
-            </p>
+          <div className="border-t border-ink-100 bg-gradient-to-br from-brand-50/50 to-white p-5 space-y-3">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+                  Need Help?
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-ink-600">
+                  Contact local GBV hotlines or support services for immediate assistance.
+                </p>
+              </div>
+              {/* Mobile quick exit inside the drawer */}
+              <QuickExitButton variant="inline" />
+            </div>
           </div>
         </div>
       </nav>

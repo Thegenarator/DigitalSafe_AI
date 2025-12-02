@@ -16,6 +16,7 @@ import { CategoryChart } from "@/components/results/category-chart";
 import { ProgressTimeline } from "@/components/results/progress-timeline";
 import { Achievements } from "@/components/shared/achievements";
 import { GBVResources } from "@/components/shared/gbv-resources";
+import { EvidenceVault } from "@/components/results/evidence-vault";
 import { useQuizStore } from "@/store/useQuizStore";
 import { useSwipe } from "@/hooks/useSwipe";
 import { scoreResponses } from "@/lib/scoring";
@@ -307,6 +308,8 @@ export default function QuizPage() {
             />
 
             <GBVResources />
+
+            <EvidenceVault />
 
             <div className="flex flex-wrap gap-4">
               <PlanDownload onDownload={handleDownload} />
