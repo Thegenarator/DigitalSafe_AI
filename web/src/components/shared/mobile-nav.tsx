@@ -1,10 +1,10 @@
-\"use client\";
+"use client";
 
-import Link from \"next/link\";
-import { usePathname } from \"next/navigation\";
-import { Home, Shield, Menu, X } from \"lucide-react\";
-import { useState, useEffect } from \"react\";
-import { QuickExitButton } from \"@/components/shared/quick-exit\";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Home, Shield, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { QuickExitButton } from "@/components/shared/quick-exit";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
