@@ -46,6 +46,21 @@ DigitalSafeAI aims to create a digitally safe environment for women and girls, e
 - [ ] Validate responsive breakpoints (mobile nav drawer, desktop nav, hero layout).
 
 ---
+**Our project was built by a powerful multidisciplinary team:
+
+Joan Muthoni — Project Lead & Research
+
+Pierre Mugisha — Frontend Development
+
+Reyane Awuor — UI/UX & Design
+
+Abosede Bamidele — Digital Literacy Content
+
+Wendy Atieno — Testing & QA
+
+Kibiwott Kamoo — Backend Development & AI Integration
+
+This diversity of skills is what made Digital Safe possible.
 
 ## Roadmap Ideas
 - Account & Supabase persistence for multi-device history.
