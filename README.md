@@ -46,7 +46,7 @@ DigitalSafeAI aims to create a digitally safe environment for women and girls, e
 - [ ] Validate responsive breakpoints (mobile nav drawer, desktop nav, hero layout).
 
 ---
-**Our project was built by a powerful multidisciplinary team:
+##Our project was built by a powerful multidisciplinary team:
 
 Joan Muthoni — Project Lead & Research
 
