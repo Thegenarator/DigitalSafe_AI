@@ -47,7 +47,9 @@ export function EvidenceVault() {
 
     const now = new Date();
     const entry: VaultEntry = {
-      id: crypto.randomUUID(),
+      id: typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
       createdAt: now.toISOString(),
       title: title.trim() || "Incident note",
       notes: notes.trim(),

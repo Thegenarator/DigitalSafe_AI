@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import type { ChatCompletionUserMessageParam } from "openai/resources/chat/completions";
 import { z } from "zod";
 import { buildAssessmentPrompt } from "@/lib/prompts";
 import { createDefaultAssessment } from "@/lib/recommendations";
@@ -59,14 +60,13 @@ export async function POST(request: Request) {
 
   try {
     const prompt = buildAssessmentPrompt(payload);
+    const userMessage: ChatCompletionUserMessageParam = {
+      role: "user",
+      content: prompt,
+    };
     const response = await client.chat.completions.create({
       model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
+      messages: [userMessage],
       temperature: 0.4,
       max_tokens: 1024,
       response_format: { type: "json_object" },
