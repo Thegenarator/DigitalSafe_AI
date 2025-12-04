@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import type { ChatCompletionSystemMessageParam, ChatCompletionUserMessageParam, ChatCompletionAssistantMessageParam } from "openai/resources/chat/completions";
 import { z } from "zod";
 import { generateKnowledgeBaseResponse } from "@/lib/mental-health-knowledge";
 
@@ -101,10 +102,28 @@ export async function POST(request: Request) {
     // Limit conversation history to last 20 messages to avoid token limits
     const recentMessages = userMessages.slice(-20);
     
-    // Ensure system prompt is included at the start
-    const messagesWithSystem = [
-      { role: "system" as const, content: SYSTEM_PROMPT },
-      ...recentMessages,
+    // Properly type the messages array
+    const systemMessage: ChatCompletionSystemMessageParam = {
+      role: "system",
+      content: SYSTEM_PROMPT,
+    };
+    
+    const typedMessages: Array<ChatCompletionUserMessageParam | ChatCompletionAssistantMessageParam> = recentMessages.map((msg) => {
+      if (msg.role === "assistant") {
+        return {
+          role: "assistant",
+          content: msg.content,
+        } as ChatCompletionAssistantMessageParam;
+      }
+      return {
+        role: "user",
+        content: msg.content,
+      } as ChatCompletionUserMessageParam;
+    });
+    
+    const messagesWithSystem: Array<ChatCompletionSystemMessageParam | ChatCompletionUserMessageParam | ChatCompletionAssistantMessageParam> = [
+      systemMessage,
+      ...typedMessages,
     ];
 
     const response = await client.chat.completions.create({
