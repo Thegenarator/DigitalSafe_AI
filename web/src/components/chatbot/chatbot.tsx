@@ -146,40 +146,40 @@ export function Chatbot({ className }: ChatbotProps) {
 
   return (
     <div
-      className={`flex h-full flex-col overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-xl ring-1 ring-black/5 ${className}`}
+      className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-ink-100 bg-white shadow-2xl ring-1 ring-black/5 backdrop-blur-sm ${className}`}
     >
       {/* Header */}
-      <div className="flex items-center gap-3 border-b border-ink-100 bg-gradient-to-r from-brand-50/90 to-brand-100/50 px-6 py-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-600 shadow-md">
-          <Heart className="h-5 w-5 text-white" />
+      <div className="flex items-center gap-4 border-b-2 border-ink-100/80 bg-gradient-to-r from-brand-50 via-brand-50/80 to-white px-6 py-5 shadow-sm">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 shadow-lg shadow-brand-500/30">
+          <Heart className="h-6 w-6 text-white" />
         </div>
         <div className="flex-1">
-          <h2 className="font-display text-lg font-bold text-ink-900">
+          <h2 className="font-display text-xl font-bold text-ink-900">
             Wellness Chat
           </h2>
-          <p className="text-xs text-ink-500">Your supportive AI companion</p>
+          <p className="mt-0.5 text-xs font-medium text-ink-500">Your supportive AI companion</p>
         </div>
-        <div className="flex items-center gap-1 text-xs text-brand-600">
-          <Sparkles className="h-3 w-3" />
-          <span className="font-semibold">AI</span>
+        <div className="flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-100 to-brand-50 px-3 py-1.5 shadow-sm">
+          <Sparkles className="h-3.5 w-3.5 text-brand-600" />
+          <span className="text-xs font-bold text-brand-700">AI Powered</span>
         </div>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-        <div className="mx-auto flex max-w-3xl flex-col gap-4">
+      <div className="flex-1 overflow-y-auto bg-gradient-to-b from-white via-ink-50/20 to-white px-4 py-6 sm:px-6">
+        <div className="mx-auto flex max-w-3xl flex-col gap-5">
           {/* Quick Actions */}
           {showQuickActions && messages.length === 1 && (
             <div className="mb-4">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-500">
+              <p className="mb-3 text-xs font-bold uppercase tracking-wider text-ink-500">
                 Quick Start Topics:
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 {QUICK_ACTIONS.map((action) => (
                   <button
                     key={action}
                     onClick={() => handleQuickAction(action)}
-                    className="rounded-full border border-brand-200 bg-white px-4 py-2 text-xs font-semibold text-brand-700 transition-all duration-200 hover:border-brand-300 hover:bg-brand-50 hover:scale-105 active:scale-95"
+                    className="rounded-full border-2 border-brand-200 bg-white px-4 py-2.5 text-xs font-semibold text-brand-700 shadow-sm transition-all duration-200 hover:border-brand-300 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100/50 hover:shadow-md hover:scale-105 active:scale-95"
                   >
                     {action}
                   </button>
@@ -196,22 +196,22 @@ export function Chatbot({ className }: ChatbotProps) {
               }`}
             >
               {message.role === "assistant" && (
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-100 to-brand-200">
-                  <Heart className="h-4 w-4 text-brand-600" />
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-100 via-brand-50 to-brand-100 shadow-md ring-1 ring-brand-200/50">
+                  <Heart className="h-4.5 w-4.5 text-brand-600" />
                 </div>
               )}
               <div
-                className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-sm ${
+                className={`max-w-[85%] rounded-2xl px-5 py-3.5 shadow-lg ring-1 ${
                   message.role === "user"
-                    ? "bg-gradient-to-br from-brand-500 to-brand-600 text-white"
-                    : "bg-ink-50 text-ink-900"
+                    ? "bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 text-white ring-brand-400/30"
+                    : "bg-white text-ink-900 ring-ink-100/50"
                 }`}
               >
-                <p className="whitespace-pre-wrap text-sm leading-relaxed">
+                <p className="whitespace-pre-wrap text-sm leading-relaxed font-medium">
                   {message.content}
                 </p>
                 <p
-                  className={`mt-1.5 text-xs ${
+                  className={`mt-2 text-[10px] font-medium uppercase tracking-wide ${
                     message.role === "user"
                       ? "text-brand-100"
                       : "text-ink-400"
@@ -224,8 +224,8 @@ export function Chatbot({ className }: ChatbotProps) {
                 </p>
               </div>
               {message.role === "user" && (
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-ink-100 to-ink-200">
-                  <span className="text-xs font-semibold text-ink-600">You</span>
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-ink-100 via-ink-50 to-ink-100 shadow-md ring-1 ring-ink-200/50">
+                  <span className="text-xs font-bold text-ink-700">You</span>
                 </div>
               )}
             </div>
@@ -233,13 +233,13 @@ export function Chatbot({ className }: ChatbotProps) {
 
           {isLoading && (
             <div className="flex gap-3 justify-start">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-100 to-brand-200">
-                <Heart className="h-4 w-4 text-brand-600" />
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-100 via-brand-50 to-brand-100 shadow-md ring-1 ring-brand-200/50">
+                <Heart className="h-4.5 w-4.5 text-brand-600" />
               </div>
-              <div className="rounded-2xl bg-ink-50 px-4 py-3 shadow-sm">
-                <div className="flex items-center gap-2">
+              <div className="rounded-2xl bg-white px-5 py-3.5 shadow-lg ring-1 ring-ink-100/50">
+                <div className="flex items-center gap-2.5">
                   <Loader2 className="h-4 w-4 animate-spin text-brand-600" />
-                  <span className="text-sm text-ink-500">Thinking...</span>
+                  <span className="text-sm font-medium text-ink-600">Thinking...</span>
                 </div>
               </div>
             </div>
@@ -250,7 +250,7 @@ export function Chatbot({ className }: ChatbotProps) {
       </div>
 
       {/* Input */}
-      <div className="border-t border-ink-100 bg-gradient-to-br from-white to-brand-50/30 p-4">
+      <div className="border-t-2 border-ink-100/80 bg-gradient-to-br from-white via-brand-50/40 to-white p-5 shadow-inner">
         <div className="mx-auto max-w-3xl">
           <div className="flex gap-3">
             <textarea
@@ -260,9 +260,9 @@ export function Chatbot({ className }: ChatbotProps) {
               onKeyDown={handleKeyDown}
               placeholder="Share what's on your mind..."
               rows={1}
-              className="flex-1 resize-none rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 focus:border-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-200"
+              className="flex-1 resize-none rounded-2xl border-2 border-ink-200 bg-white px-5 py-3.5 text-sm font-medium text-ink-900 placeholder:text-ink-400 shadow-sm ring-1 ring-ink-100/50 transition-all duration-200 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:shadow-md"
               style={{
-                minHeight: "48px",
+                minHeight: "52px",
                 maxHeight: "120px",
               }}
               disabled={isLoading}
@@ -270,7 +270,7 @@ export function Chatbot({ className }: ChatbotProps) {
             <button
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-md shadow-brand-500/30 transition-all duration-300 hover:from-brand-600 hover:to-brand-700 hover:shadow-lg hover:shadow-brand-500/40 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-brand-300"
+              className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 text-white shadow-lg shadow-brand-500/30 transition-all duration-300 hover:from-brand-600 hover:via-brand-700 hover:to-brand-800 hover:shadow-xl hover:shadow-brand-500/40 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2"
               aria-label="Send message"
             >
               {isLoading ? (
@@ -280,7 +280,7 @@ export function Chatbot({ className }: ChatbotProps) {
               )}
             </button>
           </div>
-          <p className="mt-2 text-xs text-ink-400">
+          <p className="mt-3 text-xs font-medium text-ink-500 leading-relaxed">
             This chat is private and not stored. For immediate crisis support, please contact your local emergency services or mental health hotline.
           </p>
         </div>
